@@ -1,1 +1,13 @@
 @import "tailwindcss";
+
+@font-face {
+    font-family: "Akrobat";   /*Can be any text*/
+    src: local("akrobat-bold"),
+      url("/fonts/akrobat-bold.woff2") format("woff2");
+  }
+
+  @font-face {
+    font-family: "Akrobat";   /*Can be any text*/
+    src: local("akrobat-regular"),
+      url("/fonts/akrobat-regular.woff2") format("woff2");
+  }

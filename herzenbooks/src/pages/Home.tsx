@@ -25,6 +25,11 @@ const Homepage = () => {
                 onClick={() => navigate('/Account')} > 
                 Аккаунт
             </button>
+
+            <button
+                onClick={() => navigate('../BookCard')} > 
+                Книга
+            </button>
             
             </>
         </div>

@@ -6,11 +6,12 @@ import Catalogpage from "./pages/Catalog";
 import Cartpage from "./pages/Cart";
 import Accountpage from "./pages/Account";
 
-import BookCard from './components/BookCard';
+
+import BookCard from './components/Book/BookCard';
 
 import "./App.css";
 
-
+import "/fonts/akrobat-bold.woff2"
 
 function App() {
   
@@ -20,7 +21,7 @@ function App() {
          <Route path="/Catalog" element={<Catalogpage />} />
          <Route path="/Cart" element={<Cartpage />} />
          <Route path="/Account" element={<Accountpage />} />
-         <Route path='/BookCard' element= {<BookCard/>}  />
+         <Route path='/book/:id' element= {<BookCard/>}  /> 
         </Routes>
         
   )
