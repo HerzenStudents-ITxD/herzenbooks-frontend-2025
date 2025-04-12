@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { getBookPreviews } from '../api/fakeApi';
-import BookPreview from '../components/Book/BookPreview';
-import { useNavigate } from "react-router-dom";
+import { BookPreviewData } from '../api/fakeApi'; 
 
+import {BookPreview} from '../components/Book/BookPreview';
+import { useNavigate } from "react-router-dom";
 
 import "/fonts/akrobat-bold.woff2"
 
 
 const Catalogpage = () => {
-  const [books, setBooks] = useState([]);
+  const [books, setBooks] = useState<BookPreviewData[]>([]);
   const [loading, setLoading] = useState(true);
-  const navigate = useNavigate(); // Хук для навигации
+  const navigate = useNavigate(); 
 
   useEffect(() => {
     getBookPreviews()
@@ -21,9 +22,9 @@ const Catalogpage = () => {
       .catch(() => setLoading(false));
   }, []);
 
-  const handleBookClick = (bookId) => {
-    console.log(`Переход на книгу с ID: ${bookId}`); // Добавьте это
-    navigate(`/book/${bookId}`); // Переход на страницу книги
+  const handleBookClick = (bookId: string) => {
+    console.log(`Переход на книгу с ID: ${bookId}`); 
+    navigate(`/book/${bookId}`); // fереход на страницу книги
   };
 
   if (loading) return <div>Загрузка...</div>;
@@ -37,11 +38,11 @@ const Catalogpage = () => {
         {books.map(book => (
           <div 
             key={book.id}
-            onClick={() => handleBookClick(book.id)} // Обработчик клика
-            className="cursor-pointer" // Меняем курсор при наведении
+            onClick={() => handleBookClick(book.id)} //  клик
+            className="cursor-pointer" //  курсор при наведении
           >
             <BookPreview
-              previewData={book}
+              book={book}
             />
           </div>
         ))}

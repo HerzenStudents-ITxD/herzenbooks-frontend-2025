@@ -6,22 +6,23 @@ import Catalogpage from "./pages/Catalog";
 import Cartpage from "./pages/Cart";
 import Accountpage from "./pages/Account";
 
+import { Layout } from './components/UI/Layout';
 
-import BookCard from './components/Book/BookCard';
+
+import {Bookpage} from './pages/Book';
 
 import "./App.css";
 
-import "/fonts/akrobat-bold.woff2"
 
 function App() {
   
   return (
       <Routes>
-         <Route path="/" element={<Homepage />} />
-         <Route path="/Catalog" element={<Catalogpage />} />
-         <Route path="/Cart" element={<Cartpage />} />
-         <Route path="/Account" element={<Accountpage />} />
-         <Route path='/book/:id' element= {<BookCard/>}  /> 
+         <Route path="/" element={<Layout><Homepage /></Layout>} />
+         <Route path="/Catalog" element={<Layout><Catalogpage /></Layout>} />
+         <Route path="/Cart" element={<Layout><Cartpage /></Layout>} />
+         <Route path="/Account" element={<Layout><Accountpage /></Layout>} />
+         <Route path='/Book/:id' element= {<Layout><Bookpage/></Layout>}  /> 
         </Routes>
         
   )

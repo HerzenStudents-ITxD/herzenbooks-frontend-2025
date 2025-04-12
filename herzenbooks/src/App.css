@@ -1,13 +1,25 @@
 @import "tailwindcss";
 
 @font-face {
-    font-family: "Akrobat";   /*Can be any text*/
+    font-family: "Akrobat";   
     src: local("akrobat-bold"),
       url("/fonts/akrobat-bold.woff2") format("woff2");
   }
 
   @font-face {
-    font-family: "Akrobat";   /*Can be any text*/
+    font-family: "Akrobat";   
     src: local("akrobat-regular"),
       url("/fonts/akrobat-regular.woff2") format("woff2");
+  }
+
+  @font-face {
+    font-family: "Akrobat";   
+    src: local("akrobat-semibold"),
+      url("/fonts/akrobat-semibold.woff2") format("woff2");
+  }
+
+  @font-face {
+    font-family: "Futuris";   
+    src: local("futuris-cyrillic"),
+      url("/fonts/futuris_cyrillic.woff2") format("woff2");
   }
