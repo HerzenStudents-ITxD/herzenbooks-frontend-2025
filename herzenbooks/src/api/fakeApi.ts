@@ -12,6 +12,7 @@ export type BookDetailsData = BookPreviewData & {
   description: string;
   publication_date: number;
   inStock: boolean;
+  
 };
 
 const fakeBooks: BookDetailsData[] = [
@@ -21,8 +22,8 @@ const fakeBooks: BookDetailsData[] = [
     author: "Арсеньева М. В. Ивлева М. Г.",
     price: 945,
     cover: "/coverbook1.jpg",
-    department: "Программирование",
-    description: "Подробное руководство по Reactффыячвсапргошлщшигнмесенс...",
+    department: "логопедия",
+    description: "Пособие предназначено для студентов, обучающихся по направлению 44.03.03 Специальное (дефектологическое) образование, направленность (профиль) 'Логопедия (Начальное образование детей с нарушениями речи)'. Представлены темы для изучения на практических занятиях, обозначено их основное содержание, приведен перечень заданий к каждой теме, списки литературы, средства оценки знаний по изученным темам.",
     publication_date: 2023,
     inStock: true
   },

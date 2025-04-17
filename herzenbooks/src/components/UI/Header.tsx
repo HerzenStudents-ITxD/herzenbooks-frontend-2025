@@ -3,13 +3,11 @@ import { useNavigate } from "react-router-dom";
 import { Footer } from './Footer'; 
 
 
-
 export const Header =()=> {
         const navigate = useNavigate();
-    
+
     return (
         <header className="flex mt-6 text-2xl font-bold  mx-5  justify-center gap-20">
-
             <>
             <button
                 onClick={() => navigate ("/")}>
@@ -22,28 +20,25 @@ export const Header =()=> {
             </button>
 
             <button
-                onClick={() => navigate(Footer)} > 
-                контакты
+                 onClick={() => document.getElementById('contacts')?.scrollIntoView({ behavior: 'smooth' })}>
+                 контакты
             </button>
 
             <button
-                onClick={() => navigate('././Catalog')} > 
+                onClick={() => navigate('/Catalog')} > 
                 каталог
             </button>
 
             <button
-                onClick={() => navigate('././Cart')} > 
+                onClick={() => navigate('/Cart')} > 
                 корзина
             </button>
 
             <button
-                onClick={() => navigate('././Account')} > 
+                onClick={() => navigate('/Account')} > 
                 <img src="akk.svg" alt="acc" className="h-6"/>
             </button>
             </>
-
-        
-        
 
         </header>
         
