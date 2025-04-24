@@ -6,7 +6,7 @@ export const Footer =()=> {
     
     return (
         
-        <footer className="flex min-h-70 bg-[rgb(43,64,143)]" id="contacts">
+        <footer className="flex min-h-70 mt-40 bg-[rgb(43,64,143)]" id="contacts">
 
         <div className='flex mx-auto w-2/3  mt-20 justify-center gap-20 font-bold text-white' style={{ fontFamily: 'Akrobat' }}>
             <>
