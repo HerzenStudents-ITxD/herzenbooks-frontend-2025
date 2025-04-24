@@ -81,7 +81,7 @@ const Catalogpage = () => {
               className={`px-4 py-2 rounded-full ${
                 activeDepartment === department
                   ? 'bg-[rgb(248,80,39)] text-white'
-                  : 'bg-white hover:bg-[rgb(248,80,39)] hover:text-white'
+                  : 'bg-white shadow-sm hover:bg-[rgb(248,80,39)] hover:text-white'
               }`}
             >
               {department}
@@ -92,14 +92,14 @@ const Catalogpage = () => {
   
       <div className='container mx-auto items-start flex flex-row mt-15'>
         {/* контейнер с фильтром */}
-        <div className="flex flex-none w-50 m-10 mt-0 ml-0 bg-white rounded">
+        <div className="flex flex-none w-50 m-10 mt-0 ml-0 bg-white rounded shadow-lg">
           <div className="flex flex-col gap-6 m-6">
             <div className='flex flex-col gap-3'>
               <p>название/автор</p> 
               <input
                 type="text"
-                placeholder="название/автор"
-                className="w-full max-w-md px-4 py-2 border rounded"
+                placeholder=""
+                className="w-full max-w-md px-4 py-2 border rounded  bg-[rgb(239,242,245)]"
                 value={searchInput}
                 onChange={(e) => setSearchInput(e.target.value)}
               />
@@ -108,8 +108,8 @@ const Catalogpage = () => {
               <p>год издания</p> 
               <input
                 type="text"
-                placeholder="год издания"
-                className="w-full max-w-md px-4 py-2 border rounded"
+                placeholder=""
+                className="w-full max-w-md px-4 py-2 border rounded bg-[rgb(239,242,245)]"
                 value={yearInput}
                 onChange={(e) => setYearInput(e.target.value)}
               />
@@ -117,7 +117,7 @@ const Catalogpage = () => {
             {/* Кнопка "Найти" */}
             <button
               onClick={handleSearch}
-              className="px-4 py-2 bg-[rgb(248,80,39)] text-white rounded-full hover:bg-[rgb(230,70,30)]"
+              className="px-4 py-2 bg-[rgb(248,80,39)] text-white rounded-full hover:bg-[rgb(248,80,39)] "
             >
               поиск
             </button>
