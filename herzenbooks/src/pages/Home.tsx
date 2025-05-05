@@ -21,7 +21,7 @@ const Homepage = () => {
              </div>
              <button 
                 onClick={() => navigate('/Catalog')} 
-                className=' w-25 h-9 mt-6 mb-10 bg-white text-black hover:bg-[rgb(248,80,39)] hover:text-white transition-colors duration-200  rounded-full '> 
+                className=' w-32 h-10 mt-6 mb-10 text-lg bg-[rgb(248,80,39)] text-white hover:bg-[rgb(72,41,34)] hover:text-white transition-colors duration-200  rounded-full '> 
                 найти книгу
             </button>
             </div>
@@ -37,18 +37,33 @@ const Homepage = () => {
                 </h1>
                 <div className='flex flex-row gap-10 mt-15'>
                     <div className='flex w-1/3  flex-col  bg-white p-7 rounded-xl'>
-                        <h1>практический семинар для педагогов</h1>
-                        <p>29.09</p>
+                        <h1 className=' text-2xl leading-7 mb-12'>Практический семинар для педагогов русского языка </h1>
+                        <div className='flex flex-row justify-between'>
+                             <p className='text-3xl mb-2'>29.09</p>
+                             <button>перейти</button>
+                        </div>
                         <img src="ivent1.jpg" alt="image" />
                     </div>
-                    <div className='flex w-1/3  flex-col bg-white '>
-                        <h1>практический семинар для педагогов</h1>
-                        <img src="" alt="" />
+
+                    <div className='flex w-1/3  flex-col  bg-white p-7 rounded-xl'>
+                        <h1 className=' text-2xl leading-7 mb-12'>Мастер-классы для школьников, студентов и педагогов</h1>
+                        <div className='flex flex-row justify-between'>
+                             <p className='text-3xl mb-2'>29.09</p>
+                             <button>перейти</button>
+                        </div>
+                        <img src="ivent2.jpg" alt="image" />
                     </div>
-                    <div className='flex w-1/3  flex-col  bg-white '>
-                        <h1>практический семинар для педагогов</h1>
-                        <img src="" alt="" />
+
+                    <div className='flex w-1/3  flex-col  bg-white p-7 rounded-xl'>
+                        <h1 className=' text-2xl leading-7 mb-12'>Лекция о жизни и творчестве Виктора Пелевина</h1>
+                        <div className='flex flex-row justify-between'>
+                             <p className='text-3xl mb-2'>29.09</p>
+                             <button>перейти</button>
+                        </div>
+                        <img src="ivent3.jpg" alt="image" />
                     </div>
+
+        
                 </div>
 
 

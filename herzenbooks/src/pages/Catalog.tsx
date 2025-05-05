@@ -92,7 +92,7 @@ const Catalogpage = () => {
   
       <div className='container mx-auto items-start flex flex-row mt-15'>
         {/* контейнер с фильтром */}
-        <div className="flex flex-none w-50 m-10 mt-0 ml-0 bg-white rounded shadow-lg">
+        <div className="flex flex-none w-50 m-10 mt-0 ml-0 bg-white rounded shadow-sm">
           <div className="flex flex-col gap-6 m-6">
             <div className='flex flex-col gap-3'>
               <p>название/автор</p> 

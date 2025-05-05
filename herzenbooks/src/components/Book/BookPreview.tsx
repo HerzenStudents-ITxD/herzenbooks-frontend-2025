@@ -1,16 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import { BookPreviewData } from '../../api/fakeApi';
+import { useAppDispatch } from '../../store/hooks';
+import { addToCart } from '../../store/cartSlice';
 
 interface BookPreviewProps {
   book: BookPreviewData;
   onClick?: () => void;
-  onAddToCart?: () => void;
 }
 
-export const BookPreview = ({ book, onClick, onAddToCart }: BookPreviewProps) => {
+export const BookPreview = ({ book, onClick }: BookPreviewProps) => {
+  const dispatch = useAppDispatch();
+  const [isHovered, setIsHovered] = useState(false);
+  const [isClicked, setIsClicked] = useState(false);
+
   const handleAddClick = (e: React.MouseEvent) => {
     e.stopPropagation();
-    onAddToCart?.();
+    dispatch(addToCart(book)); // Отправляем книгу в корзину
+    setIsClicked(true);
+  };
+
+  const getIcon = () => {
+    if (isClicked || isHovered) return "/cart_mini2.svg";
+    return "/cart_mini.svg";
   };
 
   return (
@@ -24,24 +35,28 @@ export const BookPreview = ({ book, onClick, onAddToCart }: BookPreviewProps) =>
         }}
       />
 
-      <div className="flex flex-col" style={{ fontFamily: 'Akrobat' }}>
+      <div className="flex flex-col justify-between" style={{ fontFamily: 'Akrobat' }}>
         <div>
-          <h3 className="font-bold text-lg uppercase">{book.title}</h3>
+          <h3 className="font-bold text-lg uppercase leading-5">{book.title}</h3>
           <p className="text-sm">{book.author}</p>
-          <p className="font-bold">{book.price} ₽</p>
         </div>
 
-        {/* кнопка добавить в корзину */}
-        <button
-          onClick={handleAddClick}
-          className="mt-2 px-3 py-1 self-start"
-        >
-          <img 
-             src="/cart_mini.svg" 
-             alt="Добавить в корзину"
-             className="w-5 h-5" // Размеры по вашему усмотрению
+        <div className="flex flex-row gap-5">
+          <p className="font-bold text-xl">{book.price} P</p>
+          <p className="text-xl"> | </p>
+          <button
+            onClick={handleAddClick}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => !isClicked && setIsHovered(false)} 
+            className="self-start hover:transition-opacity"
+          >
+            <img 
+              src={getIcon()} 
+              alt="Добавить в корзину"
+              className="w-6 h-6 transition-all"
             />
-        </button>
+          </button>
+        </div>
       </div>
     </div>
   );
