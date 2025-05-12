@@ -6,7 +6,7 @@ export type BookPreviewData = {
   price: number;
   cover: string;
   department: string;
-  publication_date: number; // Добавляем это поле
+  publication_date: number; 
 };
 
 export type BookDetailsData = BookPreviewData & {

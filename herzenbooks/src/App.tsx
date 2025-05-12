@@ -8,9 +8,10 @@ import Accountpage from "./pages/Account";
 
 import { Layout } from './components/UI/Layout';
 
-
-
 import {Bookpage} from './pages/Book';
+
+import { NotFound } from "./pages/NotFound";
+
 
 import "./App.css";
 
@@ -24,6 +25,9 @@ function App() {
          <Route path="/Cart" element={<Layout><Cartpage /></Layout>} />
          <Route path="/Account" element={<Layout><Accountpage /></Layout>} />
          <Route path='/Book/:id' element= {<Layout><Bookpage/></Layout>}  /> 
+         <Route path="*" element={<NotFound />}/> 
+         
+
         </Routes>
         
   )

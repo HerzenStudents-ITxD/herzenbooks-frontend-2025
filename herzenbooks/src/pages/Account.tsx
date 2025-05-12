@@ -4,8 +4,8 @@ import { useState } from 'react';
 const Accountpage = () => {
     return (
         <div className='flex w-5/6 flex-col mx-auto items-start'>
-          <div className="container mx-auto text-4xl mb-6 mt-5">
-            <h1 className= "font-bold"style={{ fontFamily: 'Akrobat' }}>мой аккаунт</h1>
+          <div className="container mx-auto mb-6 mt-5">
+            <h1 className= "font-bold text-4xl"style={{ fontFamily: 'Akrobat' }}>мой аккаунт</h1>
 
             <div className='flex flex-row justify-between  mt-15'>
 
@@ -17,7 +17,7 @@ const Accountpage = () => {
                     <p> пароль </p>
                   </div>
                   
-                  <div className='flex flex-col items-start text-lg'>
+                  <div className='flex flex-col items-start text-sm mt-5'>
                   <button className='text-[rgb(43,64,143)]'>
                     редактировать 
                     <span className='ml-3 mt-3 absolute bg-[rgb(43,64,143)] rounded-full h-1 w-1'></span>
