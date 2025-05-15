@@ -7,13 +7,17 @@ export type BookPreviewData = {
   cover: string;
   department: string;
   publication_date: number; 
+  
 };
 
 export type BookDetailsData = BookPreviewData & {
   description: string;
   publication_date: number;
   inStock: boolean;
-  
+  pages:number;
+  format: string;
+  upc: string;
+  publisher: string;
 };
 
 const fakeBooks: BookDetailsData[] = [
@@ -26,7 +30,11 @@ const fakeBooks: BookDetailsData[] = [
     department: "коррекционная педагогика",
     description: "Пособие предназначено для студентов, обучающихся по направлению 44.03.03 Специальное (дефектологическое) образование, направленность (профиль) 'Логопедия (Начальное образование детей с нарушениями речи)'. Представлены темы для изучения на практических занятиях, обозначено их основное содержание, приведен перечень заданий к каждой теме, списки литературы, средства оценки знаний по изученным темам.",
     publication_date: 2023,
-    inStock: true
+    inStock: true,
+    pages: 300,
+    format: "172x290 мм",
+    upc: "978-5-17-98649-4",
+    publisher: "Herzen книги"
   },
   
   {
@@ -38,7 +46,13 @@ const fakeBooks: BookDetailsData[] = [
     department: "спорт",
     description: "Продвинутые техники TypeScriptсемгншигзргнесексмищт...",
     publication_date: 2022,
-    inStock: false
+    inStock: false,
+    pages: 300,
+    format: "172x290 мм",
+    upc: "978-5-17-98649-4",
+    publisher: "Herzen книги"
+
+
   },
    {
     id: "3",
@@ -49,7 +63,12 @@ const fakeBooks: BookDetailsData[] = [
     department: "Институт севера",
     description: "Пособие предназначено для студентов, обучающихся по направлению 44.03.03 Специальное (дефектологическое) образование, направленность (профиль) 'Логопедия (Начальное образование детей с нарушениями речи)'. Представлены темы для изучения на практических занятиях, обозначено их основное содержание, приведен перечень заданий к каждой теме, списки литературы, средства оценки знаний по изученным темам.",
     publication_date: 2023,
-    inStock: true
+    inStock: true,
+    pages: 300,
+    format: "172x290 мм",
+    upc: "978-5-17-98649-4",
+    publisher: "Herzen книги"
+
   },
   {
     id: "4",
@@ -60,7 +79,12 @@ const fakeBooks: BookDetailsData[] = [
     department: "философия",
     description: "Продвинутые техники TypeScriptсемгншигзргнесексмищт...",
     publication_date: 2022,
-    inStock: false
+    inStock: false,
+    pages: 300,
+    format: "172x290 мм",
+    upc: "978-5-17-98649-4",
+    publisher: "Herzen книги"
+
   },
   {
     id: "5",
@@ -68,10 +92,15 @@ const fakeBooks: BookDetailsData[] = [
     author: "Петр Петров",
     price: 950,
     cover: "/coverbook5.jpg" ,
-    department: "право | менеджмент",
+    department: "Институт севера",
     description: "Продвинутые техники TypeScriptсемгншигзргнесексмищт...",
     publication_date: 2022,
-    inStock: false
+    inStock: false,
+    pages: 300,
+    format: "172x290 мм",
+    upc: "978-5-17-98649-4",
+    publisher: "Herzen книги"
+
   }
   ,
   {
@@ -83,7 +112,12 @@ const fakeBooks: BookDetailsData[] = [
     department: "Институт севера",
     description: "Продвинутые техники TypeScriptсемгншигзргнесексмищт...",
     publication_date: 2022,
-    inStock: false
+    inStock: false,
+    pages: 300,
+    format: "172x290 мм",
+    upc: "978-5-17-98649-4",
+    publisher: "Herzen книги"
+
   }
 ];
 
