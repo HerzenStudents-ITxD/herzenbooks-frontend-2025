@@ -16,20 +16,26 @@ export const BookDetails = ({ book }: BookDetailsProps) => {
   const [departmentBooks, setDepartmentBooks] = useState<BookPreviewData[]>([]);
   const MAX_PREVIEW_LENGTH = 300;
 
-  // Проверяем, есть ли книга в корзине
   const isInCart = cartItems.some(item => item.id === book.id);
 
   useEffect(() => {
-    getBookPreviews().then(books => {
-      const sameDepartmentBooks = books
-        .filter(b => b.department === book.department && b.id !== book.id)
-        .slice(0, 3);
-      setDepartmentBooks(sameDepartmentBooks);
-    });
+    const loadDepartmentBooks = async () => {
+      try {
+        const books = await getBookPreviews();
+        const sameDepartmentBooks = books
+          .filter(b => b.department === book.department && b.id !== book.id)
+          .slice(0, 3);
+        setDepartmentBooks(sameDepartmentBooks);
+      } catch (error) {
+        console.error('Failed to load department books:', error);
+      }
+    };
+
+    loadDepartmentBooks();
   }, [book.department, book.id]);
 
   const handleAddToCart = () => {
-    if (!isInCart) {
+    if (!isInCart && book.inStock) {
       dispatch(addToCart({
         id: book.id,
         title: book.title,
@@ -45,6 +51,57 @@ export const BookDetails = ({ book }: BookDetailsProps) => {
   const previewDescription = book.description.length > MAX_PREVIEW_LENGTH
     ? `${book.description.substring(0, MAX_PREVIEW_LENGTH)}...`
     : book.description;
+
+  const renderDescriptionTab = () => (
+    <>
+      <div className='text-lg pt-4' style={{ fontFamily: 'Futuris' }}>
+        <p>{showFullDescription ? book.description : previewDescription}</p>
+        
+        {book.description.length > MAX_PREVIEW_LENGTH && (
+          <button
+            onClick={() => setShowFullDescription(!showFullDescription)}
+            className="text-black mt-3 text-lg flex items-center" 
+            style={{ fontFamily: 'Akrobat' }}
+          >
+            {showFullDescription ? (
+              <>
+                свернуть
+                <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+                </svg>
+              </>
+            ) : (
+              <>
+                полное описание
+                <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </>
+            )}
+          </button>
+        )}
+      </div>
+    </>
+  );
+
+  const renderSpecsTab = () => (
+    <div className="pt-4 flex flex-row gap-10" style={{ fontFamily: 'Futuris' }}>
+      <div className="text-lg font-medium">
+        <p>Год издания</p>
+        <p>Издательство</p>
+        <p>Количество страниц</p>
+        <p>Формат</p>
+        <p>UPC код</p>
+      </div>
+      <div className='text-lg font-medium'>
+        <p>{book.publication_date}</p>
+        <p>{book.publisher}</p>
+        <p>{book.pages}</p>
+        <p>{book.format}</p>
+        <p>{book.upc}</p>
+      </div>
+    </div>
+  );
 
   return (
     <div className="book-page">
@@ -86,74 +143,7 @@ export const BookDetails = ({ book }: BookDetailsProps) => {
             </button>
           </div>
 
-          {activeTab === 'description' ? (
-            <>
-              <div className='text-lg pt-4' style={{ fontFamily: 'Futuris' }}>
-                <p>{showFullDescription ? book.description : previewDescription}</p>
-                
-                {book.description.length > MAX_PREVIEW_LENGTH && (
-                  <button
-                  onClick={() => setShowFullDescription(!showFullDescription)}
-                  className="text-black mt-3 text-lg flex items-center" style={{ fontFamily: 'Akrobat' }}
-                >
-                  {showFullDescription ? (
-                    <>
-                      свернуть
-                      <svg 
-                        className="w-5 h-5 ml-2" 
-                        fill="none" 
-                        stroke="currentColor" 
-                        viewBox="0 0 24 24"
-                      >
-                        <path 
-                          strokeLinecap="round" 
-                          strokeLinejoin="round" 
-                          strokeWidth={2} 
-                          d="M5 15l7-7 7 7" 
-                        />
-                      </svg>
-                    </>
-                  ) : (
-                    <>
-                      полное описание
-                      <svg 
-                        className="w-5 h-5 ml-2" 
-                        fill="none" 
-                        stroke="currentColor" 
-                        viewBox="0 0 24 24"
-                      >
-                        <path 
-                          strokeLinecap="round" 
-                          strokeLinejoin="round" 
-                          strokeWidth={2} 
-                          d="M19 9l-7 7-7-7" 
-                        />
-                      </svg>
-                    </>
-                  )}
-                </button>
-                )}
-              </div>
-            </>
-          ) : (
-            <div className="pt-4 flex flex-row gap-10" style={{ fontFamily: 'Futuris' }}>
-              <div className="text-lg font-medium">
-                <p>Год издания</p>
-                <p>Издательство</p>
-                <p>Количество страниц</p>
-                <p>Формат</p>
-                <p>UPC код</p>
-              </div>
-
-              <div className='text-lg font-medium'>
-                <p>{book.publication_date}</p>
-                <p>{book.publisher}</p>
-                <p>{book.pages}</p>
-                <p>{book.format}</p>
-                <p>{book.upc}</p>
-              </div>
-            </div>
-          )}
+          {activeTab === 'description' ? renderDescriptionTab() : renderSpecsTab()}
         </div>
 
         <div className="flex flex-col w-80 m-10 pl-11 justify-center h-45 bg-white shadow-md rounded-xl items-start gap-2">
@@ -162,7 +152,7 @@ export const BookDetails = ({ book }: BookDetailsProps) => {
               ? 'text-[rgb(248,80,39)]'
               : 'text-[rgb(43,64,143)]'}`}
           >
-            {book.inStock ? '●  есть в наличии' : '●  нет в наличии'}
+            {book.inStock ? '● есть в наличии' : '● нет в наличии'}
           </span>
 
           <span className="font-bold text-5xl">{book.price} Р</span>
