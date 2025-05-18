@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import { getBookPreviews } from '../api/fakeApi';
 import { BookPreviewData } from '../api/fakeApi';
 import { BookPreview } from '../components/Book/BookPreview';
@@ -11,7 +11,7 @@ const Catalogpage = () => {
   const [loading, setLoading] = useState(true);
   const [searchInput, setSearchInput] = useState(''); // временное значение для input
   const [yearInput, setYearInput] = useState(''); // временное значение для input года
-  const [activeDepartment, setActiveDepartment] = useState<string>('Все');
+  const [activeDepartment, setActiveDepartment] = useState<string>('все');
   const [searchQuery, setSearchQuery] = useState(''); // финальное значение для поиска
   const [yearQuery, setYearQuery] = useState(''); // финальное значение для года
   const navigate = useNavigate();
@@ -26,7 +26,7 @@ const Catalogpage = () => {
   }, []);
 
   const departments = useMemo(() => 
-    ['Все', ...new Set(books.map(book => book.department))],
+    ['все', ...new Set(books.map(book => book.department))],
     [books]
   );
 
@@ -38,7 +38,7 @@ const Catalogpage = () => {
   const filteredBooks = useMemo(() => {
     let result = books;
     
-    if (activeDepartment !== 'Все') {
+    if (activeDepartment !== 'все') {
       result = result.filter(book => book.department === activeDepartment);
     }
     
@@ -72,13 +72,13 @@ const Catalogpage = () => {
       </div>
   
       {/* контейнер с кнопками департаментов */}
-      <div className='container mx-auto flex items-start'>
-        <div className="flex flex-row gap-4 lowercase">
+      <div className='container mx-auto flex items-start normal-case'>
+        <div className="flex flex-row gap-4 lowercase ">
           {departments.map(department => (
             <button
               key={department}
               onClick={() => setActiveDepartment(department)}
-              className={`px-4 py-2 rounded-full ${
+              className={`px-4 py-2 rounded-full  shadow-md ${
                 activeDepartment === department
                   ? 'bg-[rgb(248,80,39)] text-white'
                   : 'bg-white shadow-sm hover:bg-[rgb(248,80,39)] hover:text-white'
@@ -92,14 +92,14 @@ const Catalogpage = () => {
   
       <div className='container mx-auto items-start flex flex-row mt-15'>
         {/* контейнер с фильтром */}
-        <div className="flex flex-none w-50 m-10 mt-0 ml-0 bg-white rounded shadow-sm">
+        <div className="flex flex-none w-50 m-10 mt-0 ml-0 bg-white rounded shadow-md hover:shadow-xl">
           <div className="flex flex-col gap-6 m-6">
             <div className='flex flex-col gap-3'>
               <p>название/автор</p> 
               <input
                 type="text"
                 placeholder=""
-                className="w-full max-w-md px-4 py-2 border rounded  bg-[rgb(239,242,245)]"
+                className="w-full max-w-md px-4 py-2 border rounded  bg-white"
                 value={searchInput}
                 onChange={(e) => setSearchInput(e.target.value)}
               />
@@ -109,7 +109,7 @@ const Catalogpage = () => {
               <input
                 type="text"
                 placeholder=""
-                className="w-full max-w-md px-4 py-2 border rounded bg-[rgb(239,242,245)]"
+                className="w-full max-w-md px-4 py-2 border rounded bg-white"
                 value={yearInput}
                 onChange={(e) => setYearInput(e.target.value)}
               />
@@ -117,7 +117,7 @@ const Catalogpage = () => {
             {/* Кнопка "Найти" */}
             <button
               onClick={handleSearch}
-              className="px-4 py-2 bg-[rgb(248,80,39)] text-white rounded-full hover:bg-[rgb(248,80,39)] "
+              className="px-4 hover:shadow-md py-2 bg-[rgb(248,80,39)] text-white rounded-full hover:bg-[rgb(248,80,39)] "
             >
               поиск
             </button>

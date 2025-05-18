@@ -1,34 +1,27 @@
 import { useLocation, useNavigate } from "react-router-dom";
-//?????? переделать надо
+
 const pathTranslations: Record<string, string> = {
   catalog: "каталог",
   cart: "корзина",
   account: "аккаунт",
+  book: "книга"
 };
 
 export function Breadcrumbs() {
-  // хук для получения текущего пути
   const location = useLocation();
-  // хук для программной навигации
   const navigate = useNavigate();
   
-  const pathnames = location.pathname.split("/");
+  const pathnames = location.pathname.split("/").filter(Boolean); // Удаляем пустые строки
 
-  const isHomePage = pathnames.length === 0;
-  
-  const isBookPage = pathnames[0] === "book" && pathnames.length > 1;
-
-  if (isHomePage) {
+  // Если мы на главной странице, не показываем хлебные крошки
+  if (pathnames.length === 0) {
     return null;
   }
 
   // Функция для получения отображаемого имени пути
   const getDisplayName = (path: string) => {
-    // Для страницы книги используем название книги из API
-    if (path === "book") return null;
-    
     // Проверяем, есть ли перевод в словаре
-    return pathTranslations[path] || path;
+    return pathTranslations[path.toLowerCase()] || path;
   };
 
   return (
@@ -43,13 +36,10 @@ export function Breadcrumbs() {
           </button>
         </li>
 
-               {pathnames.map((path, index) => {
+        {pathnames.map((path, index) => {
           const isLast = index === pathnames.length - 1;
           const routeTo = `/${pathnames.slice(0, index + 1).join("/")}`;
           const displayName = getDisplayName(path);
-
-          // зачем то пропускаем "book" в пути (для страницы книги)
-          if (!displayName) return null;
 
           return (
             <li key={routeTo} className="flex items-center gap-2">
@@ -61,7 +51,7 @@ export function Breadcrumbs() {
               ) : (
                 <button
                   onClick={() => navigate(routeTo)}
-                  className=""
+                  className="hover:text-blue-500"
                 >
                   {displayName}
                 </button>

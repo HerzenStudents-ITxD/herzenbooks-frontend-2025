@@ -1,9 +1,7 @@
-import { useState } from 'react';
 import { useAppSelector } from '../store/hooks';
 
 const Accountpage = () => {
   const orders = useAppSelector(state => state.cart.orders);
-  const [activeTab, setActiveTab] = useState<'profile' | 'orders'>('profile');
 
   return (
     <div className='flex w-5/6 flex-col mx-auto items-start'>
@@ -30,26 +28,28 @@ const Accountpage = () => {
           </div>
 
           <div className='flex w-5/7 flex-col'>
-            <h1 className='text-2xl' style={{ fontFamily: 'Akrobat' }}>заказы</h1>
+            <h1 className='text-3xl  pb-4' style={{ fontFamily: 'Akrobat' }}>заказы</h1>
             
             {orders.length === 0 ? (
               <p className="mt-4" style={{ fontFamily: 'Akrobat' }}>У вас нет активных заказов</p>
             ) : (
+
               <div className="mt-4 space-y-4">
                 {orders.map((order, index) => (
-                  <div key={index} className="border-b border-gray-200 pb-4">
-                    <div className="flex justify-between">
+                  <div key={index} className="border-b border-gray-300 pb-6 pt-2">
+
+                    <div className="flex flex-row justify-between">
 
                       <div>
-                        <h3 className="font-bold uppercase text-xl" style={{ fontFamily: 'Akrobat' }}>{order.title}</h3>
+                        <h3 className="flex w-80 font-bold uppercase text-xl" style={{ fontFamily: 'Akrobat' }}>{order.title}</h3>
                         <p style={{ fontFamily: 'Akrobat' }}>{order.author}</p>
-                      
+                     
                       </div>
 
-                      <div>
-                      <p className="text-xl" style={{ fontFamily: 'Akrobat' }}>
+                      <div className='flex '>
+                      <div className="text-xl text-left" style={{ fontFamily: 'Akrobat' }}>
                           {new Date(order.orderDate).toLocaleDateString('ru-RU')}
-                        </p>
+                        </div>
                       </div>
 
                       <div className="text-right">

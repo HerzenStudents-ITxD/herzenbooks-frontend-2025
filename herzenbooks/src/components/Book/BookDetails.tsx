@@ -53,7 +53,7 @@ export const BookDetails = ({ book }: BookDetailsProps) => {
         <p className="text-3xl mt-3">{book.author}</p>
       </div>
 
-      <div className='flex flex-row flex-wrap mt-10 gap-6'>  
+      <div className='flex flex-row flex-wrap mt-10 gap-8'>  
         <div className="flex w-70 md:w-90 m-0">
           <img
             src={book.cover}
@@ -93,11 +93,45 @@ export const BookDetails = ({ book }: BookDetailsProps) => {
                 
                 {book.description.length > MAX_PREVIEW_LENGTH && (
                   <button
-                    onClick={() => setShowFullDescription(!showFullDescription)}
-                    className="text-black mt-3 text-lg" style={{ fontFamily: 'Akrobat' }}
-                  >
-                    {showFullDescription ? 'свернуть' : 'полное описание'}
-                  </button>
+                  onClick={() => setShowFullDescription(!showFullDescription)}
+                  className="text-black mt-3 text-lg flex items-center" style={{ fontFamily: 'Akrobat' }}
+                >
+                  {showFullDescription ? (
+                    <>
+                      свернуть
+                      <svg 
+                        className="w-5 h-5 ml-2" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        viewBox="0 0 24 24"
+                      >
+                        <path 
+                          strokeLinecap="round" 
+                          strokeLinejoin="round" 
+                          strokeWidth={2} 
+                          d="M5 15l7-7 7 7" 
+                        />
+                      </svg>
+                    </>
+                  ) : (
+                    <>
+                      полное описание
+                      <svg 
+                        className="w-5 h-5 ml-2" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        viewBox="0 0 24 24"
+                      >
+                        <path 
+                          strokeLinecap="round" 
+                          strokeLinejoin="round" 
+                          strokeWidth={2} 
+                          d="M19 9l-7 7-7-7" 
+                        />
+                      </svg>
+                    </>
+                  )}
+                </button>
                 )}
               </div>
             </>
@@ -122,7 +156,7 @@ export const BookDetails = ({ book }: BookDetailsProps) => {
           )}
         </div>
 
-        <div className="flex flex-col w-80 m-10 pl-11 justify-center h-45 bg-white rounded-xl items-start gap-2">
+        <div className="flex flex-col w-80 m-10 pl-11 justify-center h-45 bg-white shadow-md rounded-xl items-start gap-2">
           <span className={`rounded-full text-2sm font-medium ${
             book.inStock 
               ? 'text-[rgb(248,80,39)]'

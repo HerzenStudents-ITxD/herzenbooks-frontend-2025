@@ -84,7 +84,7 @@ const cartSlice = createSlice({
       }
     },
     // Инициализация состояния из localStorage
-    initCart: (state, action: PayloadAction<CartState>) => {
+    initCart: (_, action: PayloadAction<CartState>) => {
       return action.payload;
     }
   },

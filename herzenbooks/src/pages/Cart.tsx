@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useAppSelector, useAppDispatch } from '../store/hooks';
 import { clearCart, createOrder } from '../store/cartSlice';
 import CartItem from '../components/Book/CartItem';

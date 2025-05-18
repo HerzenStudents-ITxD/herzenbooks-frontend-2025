@@ -36,12 +36,12 @@ const CartItem: React.FC<CartItemProps> = ({ item }) => {
         </div>
       </div>
       
-      <div className="flex flex-row items-center gap-7 font-bold">
+      <div className="flex flex-row items-center gap-7 font-bold ">
         <div className="flex items-center gap-4">
           <button
             onClick={() => handleQuantityChange(item.quantity - 1)}
             disabled={item.quantity <= 1}
-            className={`flex items-center justify-center h-8 w-4 rounded-full
+            className={`flex items-center justify-center h-8 w-4 rounded-full 
                       ${item.quantity <= 1 ? 'opacity-30 cursor-default' : 'hover:bg-gray-100'}`}
           >
             <img  

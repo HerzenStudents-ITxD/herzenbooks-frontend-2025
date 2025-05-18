@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAppSelector } from '../../store/hooks';
 import { LoginModal } from '../AccountModal/LoginModal';
@@ -29,7 +29,7 @@ export const Header = () => {
         <img src="logo.svg" alt="LoGO" className="w-10 lg:w-25"/>
       </button>
 
-      <div className='flex font- text-s w-10 lg:w-140 h-10 bg-white  shadow-lg' style={{ fontFamily: 'Futuris' }}>
+      <div className='flex font- text-s w-10 lg:w-140 h-10 bg-white  shadow-lg ' style={{ fontFamily: 'Futuris' }}>
         <input
           type="text"
           placeholder="поиск"
