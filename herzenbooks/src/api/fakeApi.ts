@@ -7,14 +7,12 @@ export type BookPreviewData = {
   cover: string;
   department: string;
   publication_date: number; 
-  
+  inStock: boolean;
 };
 
 export type BookDetailsData = BookPreviewData & {
   description: string;
-  publication_date: number;
-  inStock: boolean;
-  pages:number;
+  pages: number;
   format: string;
   upc: string;
   publisher: string;
@@ -26,9 +24,9 @@ const fakeBooks: BookDetailsData[] = [
     title: "Коррекция нарушений связной речи у детей",
     author: "Арсеньева М. В. Ивлева М. Г.",
     price: 945,
-    cover: "/coverbook1.jpg",
+    cover: `${import.meta.env.BASE_URL}coverbook1.jpg`,
     department: "коррекционная педагогика",
-    description: "Пособие предназначено для студентов, обучающихся по направлению 44.03.03 Специальное (дефектологическое) образование, направленность (профиль) 'Логопедия (Начальное образование детей с нарушениями речи)'. Представлены темы для изучения на практических занятиях, обозначено их основное содержание, приведен перечень заданий к каждой теме, списки литературы, средства оценки знаний по изученным темам.",
+    description: "Пособие предназначено для студентов...",
     publication_date: 2023,
     inStock: true,
     pages: 300,
@@ -36,79 +34,72 @@ const fakeBooks: BookDetailsData[] = [
     upc: "978-5-17-98649-4",
     publisher: "Herzen книги",
   },
-  
   {
     id: "2",
     title: "Жизнь номер один",
     author: "Липовецкий О.",
     price: 950,
-    cover: "/coverbook2.jpg" ,
+    cover: `${import.meta.env.BASE_URL}coverbook2.jpg`,
     department: "спорт",
-    description: "Взросление — самый непростой период в жизни человека, в который все случается впервые, а поэтому воспринимается остро и ярко. Первая любовь и попытки отвоевать свое место под солнцем, ощутить собственную силу, обрести голос и воспоминания — задачи не из легких, но любящая семья, друзья и враги помогут герою на этом важнейшем этапе становления. ",
+    description: "Взросление — самый непростой период...",
     publication_date: 2022,
     inStock: true,
     pages: 300,
     format: "172x290 мм",
     upc: "978-5-17-98649-4",
     publisher: "ИД Городец"
-
-
   },
-   {
+  {
     id: "3",
     title: "Наречие в вепсском языке",
     author: "И. В. Бродский",
     price: 945,
-    cover: "/coverbook3.jpg",
+    cover: `${import.meta.env.BASE_URL}coverbook3.jpg`,
     department: "Институт севера",
-    description: "Пособие предназначено для студентов, обучающихся по направлению 44.03.03 Специальное (дефектологическое) образование, направленность (профиль) 'Логопедия (Начальное образование детей с нарушениями речи)'. Представлены темы для изучения на практических занятиях, обозначено их основное содержание, приведен перечень заданий к каждой теме, списки литературы, средства оценки знаний по изученным темам.",
+    description: "Пособие предназначено для студентов...",
     publication_date: 2023,
     inStock: true,
     pages: 300,
     format: "172x290 мм",
     upc: "978-5-17-98649-4",
     publisher: "Herzen книги"
-
   },
   {
     id: "4",
     title: "Древний языкв генезисе философских понятий",
     author: "Петр Петров",
     price: 950,
-    cover: "/coverbook4.jpg" ,
+    cover: `${import.meta.env.BASE_URL}coverbook4.jpg`,
     department: "философия",
-    description: "Материалы, представленные в пособии, всесторонне отражают содержание дисциплины Древний язык в генезисе философских понятий. Углубленному изучению предмета способствуют терминологические словари. Учебное пособие предназначено для студентов-бакалавров дневного и заочного отделений, обучающихся по специальности Философия (направление философская антропология). Пособие может быть полезным также магистрантам и аспирантам, специализирующимся в области философии и смежных гуманитарных наук.",
+    description: "Материалы, представленные в пособии...",
     publication_date: 2022,
     inStock: true,
     pages: 300,
     format: "172x290 мм",
     upc: "978-5-17-98649-4",
     publisher: "Herzen книги"
-
   },
   {
     id: "5",
     title: "Художественный текстиль роспись по ткани",
     author: "Петр Петров",
     price: 950,
-    cover: "/coverbook5.jpg" ,
+    cover: `${import.meta.env.BASE_URL}coverbook5.jpg`,
     department: "Художественное образование",
-    description: "Настоящее издание представляет собой учебно-методическое пособие к основной образовательной программе. Приведен пример преподавания в вузе росписи по ткани и варианты выполнения практического задания. В исторической справке отмечено значение Ленинградской школы художественного текстиля в процессе совершенствования технологии батика. Теоретический материал дополнен иллюстрациями. Учебно-методическое пособие отражает специфику преподавания дисциплины на кафедре декоративного искусства и дизайна и апробировано в учебном процессе. Издание адресовано педагогам и студентам.",
+    description: "Настоящее издание представляет собой...",
     publication_date: 2022,
     inStock: true,
     pages: 300,
     format: "172x290 мм",
     upc: "978-5-17-98649-4",
     publisher: "Herzen книги"
-
-  }
-  ,
+  },
   {
     id: "6",
     title: "Традиции института народов Севера",
     author: "Петр Петров",
     price: 950,
-    cover: "/coverbook6.jpg" ,
+    cover: `${import.meta.env.BASE_URL}coverbook6.jpg`,
     department: "Институт севера",
     description: "Продвинутые техники TypeScriptсемгншигзргнесексмищт...",
     publication_date: 2022,
@@ -117,14 +108,13 @@ const fakeBooks: BookDetailsData[] = [
     format: "172x290 мм",
     upc: "978-5-17-98649-4",
     publisher: "Herzen книги"
-
   },
   {
     id: "7",
     title: "Традиции института народов Севера",
     author: "Петр Петров",
     price: 950,
-    cover: "/coverbook6.jpg" ,
+    cover: `${import.meta.env.BASE_URL}coverbook6.jpg`,
     department: "Институт севера",
     description: "Продвинутые техники TypeScriptсемгншигзргнесексмищт...",
     publication_date: 2022,
@@ -133,14 +123,13 @@ const fakeBooks: BookDetailsData[] = [
     format: "172x290 мм",
     upc: "978-5-17-98649-4",
     publisher: "Herzen книги"
-  }
-  ,
+  },
   {
     id: "8",
     title: "Традиции института народов Севера",
     author: "Петр Петров",
     price: 950,
-    cover: "/coverbook6.jpg" ,
+    cover: `${import.meta.env.BASE_URL}coverbook6.jpg`,
     department: "Институт севера",
     description: "Продвинутые техники TypeScriptсемгншигзргнесексмищт...",
     publication_date: 2022,
@@ -149,14 +138,13 @@ const fakeBooks: BookDetailsData[] = [
     format: "172x290 мм",
     upc: "978-5-17-98649-4",
     publisher: "Herzen книги"
-  }
-  ,
+  },
   {
     id: "9",
     title: "Традиции института народов Севера",
     author: "Петр Петров",
     price: 950,
-    cover: "/coverbook6.jpg" ,
+    cover: `${import.meta.env.BASE_URL}coverbook6.jpg`,
     department: "Институт севера",
     description: "Продвинутые техники TypeScriptсемгншигзргнесексмищт...",
     publication_date: 2022,
@@ -165,7 +153,6 @@ const fakeBooks: BookDetailsData[] = [
     format: "172x290 мм",
     upc: "978-5-17-98649-4",
     publisher: "Herzen книги"
-
   }
 ];
 
@@ -188,7 +175,7 @@ export const getBookPreviews = (): Promise<BookPreviewData[]> => {
       cover, 
       department,
       publication_date,
-      inStock  // Включаем в возвращаемый объект
+      inStock
     }))
   );
 };
