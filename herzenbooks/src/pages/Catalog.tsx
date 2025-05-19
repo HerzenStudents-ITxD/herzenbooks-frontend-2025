@@ -66,19 +66,19 @@ const Catalogpage = () => {
   if (loading) return <div>Загрузка...</div>;
 
   return (
-    <div className='flex w-5/6 flex-col mx-auto items-center'>
-      <div className="container mx-auto text-4xl mb-6 font-bold mt-5">
+    <div className='flex w-5/6 flex-col mx-auto items-start'>
+      <div className="container  text-4xl mb-6 font-bold mt-5">
         <h1 style={{ fontFamily: 'Akrobat' }}>каталог</h1>
       </div>
   
       {/* контейнер с кнопками департаментов */}
-      <div className='container mx-auto flex items-start normal-case'>
-        <div className="flex flex-row gap-4 lowercase ">
+      <div className='container flex items-start flex-row gap-4 lowercase '>
+        <div className="">
           {departments.map(department => (
             <button
               key={department}
               onClick={() => setActiveDepartment(department)}
-              className={`px-4 py-2 rounded-full  shadow-md ${
+              className={`mr-2 mt-2 px-4 py-2 rounded-full text-2sm w-auto h-10 shadow-md ${
                 activeDepartment === department
                   ? 'bg-[rgb(248,80,39)] text-white'
                   : 'bg-white shadow-sm hover:bg-[rgb(248,80,39)] hover:text-white'
@@ -90,16 +90,16 @@ const Catalogpage = () => {
         </div>
       </div>
   
-      <div className='container mx-auto items-start flex flex-row mt-15'>
+      <div className='container w-full items-start flex flex-row  mt-15'>
         {/* контейнер с фильтром */}
-        <div className="flex flex-none w-50 m-10 mt-0 ml-0 bg-white rounded shadow-md hover:shadow-xl">
+        <div className=" flex flex-none w-37 md:w-50 m-10 mt-0 ml-0 bg-white rounded shadow-md hover:shadow-xl">
           <div className="flex flex-col gap-6 m-6">
             <div className='flex flex-col gap-3'>
               <p>название/автор</p> 
               <input
                 type="text"
                 placeholder=""
-                className="w-full max-w-md px-4 py-2 border rounded  bg-white"
+                className="w-full h-10  max-w-md px-4 py-2 border rounded  bg-white"
                 value={searchInput}
                 onChange={(e) => setSearchInput(e.target.value)}
               />

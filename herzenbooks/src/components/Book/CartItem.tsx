@@ -31,17 +31,17 @@ const CartItem: React.FC<CartItemProps> = ({ item }) => {
           }}
         />
         <div>
-          <h3 className="font-bold text-2xl uppercase">{item.title}</h3>
-          <p className="text-lx">{item.author}</p>
+          <h3 className="font-bold text-lg md:text-2xl uppercase">{item.title}</h3>
+          <p className="text-xs md:text-lx">{item.author}</p>
         </div>
       </div>
       
-      <div className="flex flex-row items-center gap-7 font-bold ">
-        <div className="flex items-center gap-4">
+      <div className="flex flex-row items-center  font-bold ">
+        <div className="flex items-center  gap-4">
           <button
             onClick={() => handleQuantityChange(item.quantity - 1)}
             disabled={item.quantity <= 1}
-            className={`flex items-center justify-center h-8 w-4 rounded-full 
+            className={`flex items-center justify-center h-8 w-2 rounded-full 
                       ${item.quantity <= 1 ? 'opacity-30 cursor-default' : 'hover:bg-gray-100'}`}
           >
             <img  
@@ -51,13 +51,13 @@ const CartItem: React.FC<CartItemProps> = ({ item }) => {
             />
           </button>
           
-          <span className="text-2xl min-w-[2rem] text-center">
+          <span className="text-lg md:text-2xl min-w-[2rem] text-center">
             {item.quantity} шт
           </span>
           
           <button
             onClick={() => handleQuantityChange(item.quantity + 1)}
-            className="flex items-center justify-center h-8 w-4 rounded-full hover:bg-gray-100"
+            className="flex items-center justify-center h-8 w-2 rounded-full hover:bg-gray-100"
           >
             <img  
               alt="Увеличить"
@@ -67,7 +67,7 @@ const CartItem: React.FC<CartItemProps> = ({ item }) => {
           </button>
         </div>
         
-        <p className="w-24 text-center text-2xl font-extrabold">{item.price * item.quantity} Р</p>
+        <p className="w-24 text-center text-lg md:text-2xl font-extrabold">{item.price * item.quantity} Р</p>
 
         
 
@@ -75,7 +75,7 @@ const CartItem: React.FC<CartItemProps> = ({ item }) => {
 
         <button
           onClick={handleRemove}
-          className="flex items-center justify-center h-6 w-6 border-2 rounded-full text-xs font-bold
+          className="flex items-center justify-center md:h-6 md:w-6 h-5 w-5 border-2 rounded-full text-xs font-bold
                     hover:bg-[rgb(0,0,0)] hover:text-white hover:border-black"
         >
           ✕
