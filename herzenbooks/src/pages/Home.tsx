@@ -43,7 +43,7 @@ const Homepage = () => {
                     </button>
                 </div>
 
-                <img src="home_image.svg" alt="image" className="w-100 m-2 md:w-5/8 md:mt-2-0" />
+                <img src={`${import.meta.env.BASE_URL}home_image.svg`} alt="image" className="w-100 m-2 md:w-5/8 md:mt-2-0" /> 
             </div>
          
             <div className='flex mx-auto w-5/6 mt-20 flex-col'>
@@ -74,7 +74,7 @@ const Homepage = () => {
                                     </div>                                  
                                 </button>
                             </div>
-                            <img src="ivent1.jpg" alt="image" />
+                            <img src={`${import.meta.env.BASE_URL}ivent1.jpg`} alt="image" /> 
                         </div>
 
                         <div className='flex w-100 flex-col bg-white p-7 shadow-md hover:shadow-xl rounded-xl'>
@@ -99,7 +99,7 @@ const Homepage = () => {
                                 </button>
 
                             </div>
-                            <img src="ivent2.jpg" alt="image" />
+                            <img src={`${import.meta.env.BASE_URL}ivent2.jpg`} alt="image" />
                         </div>
 
                         <div className='flex w-100 flex-col bg-white p-7 rounded-xl shadow-md hover:shadow-xl'>
@@ -123,7 +123,7 @@ const Homepage = () => {
                                     </div>                                  
                                 </button>
                             </div>
-                            <img src="ivent3.jpg" alt="image" />
+                            <img src={`${import.meta.env.BASE_URL}ivent3.jpg`} alt="image" />
                         </div>
                     </div>
                 </div>

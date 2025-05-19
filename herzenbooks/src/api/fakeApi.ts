@@ -138,7 +138,7 @@ const fakeBooks: BookDetailsData[] = [
   {
     id: "8",
     title: "Русская речь в 21 веке",
-    author: "Гончарова Е. И. Игнатьева Н. Д.Сидорова Е. Ю",
+    author: "Гончарова Е. И.",
     price: 950,
     cover: `${import.meta.env.BASE_URL}coverbook8.jpg`,   
     department: "филология",

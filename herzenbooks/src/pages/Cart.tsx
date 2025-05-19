@@ -31,7 +31,7 @@ const CartPage = () => {
       
       {cartItems.length === 0 ? (
         <div className="w-full text-center text-gray-500 mt-10" style={{ fontFamily: 'Akrobat' }}>
-          Ваша корзина пуста
+          ваша корзина пуста
         </div>
       ) : (
         <>

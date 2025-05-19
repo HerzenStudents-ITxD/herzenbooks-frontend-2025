@@ -105,7 +105,7 @@ export const BookDetails = ({ book }: BookDetailsProps) => {
 
   return (
     <div className="book-page">
-      <div className="flex flex-col mt-30">
+      <div className="flex flex-col mt-9">
         <h1 className="text-5xl font-bold uppercase">{book.title}</h1>
         <p className="text-3xl mt-3">{book.author}</p>
       </div>
