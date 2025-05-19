@@ -24,7 +24,7 @@ const Homepage = () => {
         <>
             <div className='home-page flex flex-col w-full mx-auto items-center md:w-5/6'>
                 <div className='flex w-4/6 ml-10 md:w-4/6 md:ml-60 mt-10 md:mt-16'> 
-                    <img src="logo.svg" alt="LoGO" className="h-19 lg:h-27"/>
+                <img src={`${import.meta.env.BASE_URL}logo.svg`} alt="LoGO" className="h-19 lg:h-27"/>                
                 </div>
                 
                 <div className='flex w-1/3 flex-col'>

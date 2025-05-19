@@ -28,9 +28,9 @@ export const BookPreview = ({ book, onClick }: BookPreviewProps) => {
   };
 
   const getIcon = () => {
-    if (!book.inStock) return "/cart_mini.svg";
-    if (isHovered || isInCart) return "/cart_mini2.svg";
-    return "/cart_mini.svg";
+    if (!book.inStock) return `${import.meta.env.BASE_URL}cart_mini.svg`;    
+    if (isHovered || isInCart) return `${import.meta.env.BASE_URL}cart_mini2.svg`;
+    return `${import.meta.env.BASE_URL}cart_mini.svg`;
   };
 
   return (
