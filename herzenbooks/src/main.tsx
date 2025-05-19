@@ -8,7 +8,7 @@ import { store } from './store/store';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <BrowserRouter basename="/technopark-proj">
+    <BrowserRouter basename="/herzenbooks">
       <Provider store={store}>
         <App />
       </Provider>
