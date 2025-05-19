@@ -4,7 +4,7 @@ const pathTranslations: Record<string, string> = {
   catalog: "каталог",
   cart: "корзина",
   account: "аккаунт",
-  book: "книга"
+  book: "описание книги"
 };
 
 export function Breadcrumbs() {
@@ -30,7 +30,7 @@ export function Breadcrumbs() {
         <li>
           <button 
             onClick={() => navigate("/")}
-            className="hover:text-blue-500"
+            className=" "
           >
             главная страница
           </button>
@@ -51,7 +51,7 @@ export function Breadcrumbs() {
               ) : (
                 <button
                   onClick={() => navigate(routeTo)}
-                  className="hover:text-blue-500"
+                  className=" "
                 >
                   {displayName}
                 </button>

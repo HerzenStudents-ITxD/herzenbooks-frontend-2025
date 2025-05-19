@@ -83,14 +83,14 @@ export const LoginModal = ({
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              placeholder="Пароль"
+              placeholder="пароль"
               className="w-full p-2 bg-white rounded shadow-sm"
               required
               autoComplete="current-password"
             />
             
             <button type="button" className='text-sm'>
-              Я не помню пароль
+              ● Я не помню пароль
             </button>
 
             <div className='flex flex-row gap-4 items-center'>
@@ -100,7 +100,7 @@ export const LoginModal = ({
                 className="w-55 h-12 text-white py-1 text-2xl bg-[rgb(43,64,143)] rounded-full disabled:opacity-50"
                 style={{ fontFamily: 'Akrobat' }}
               >
-                {isLoading ? 'Вход...' : 'Войти'}
+                {isLoading ? 'вход...' : 'войти'}
               </button>
 
               <div className='flex flex-col text-2sm items-center'>

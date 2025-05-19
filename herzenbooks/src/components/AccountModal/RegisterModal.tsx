@@ -173,7 +173,7 @@ export const RegisterModal = ({
               name="password"
               value={formData.password}
               onChange={handleChange}
-              placeholder="Пароль* (минимум 6 символов)"
+              placeholder="пароль* (минимум 6 символов)"
               className="w-full p-2 bg-white rounded shadow-sm"
               required
               minLength={6}
@@ -217,7 +217,7 @@ export const RegisterModal = ({
                 }}
                 className="text-[rgb(43,64,143)] hover:text-[rgb(27,32,49)] font-medium"
               >
-                Войти
+                войти
               </button>
             </div>
           </form>
