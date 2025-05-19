@@ -173,7 +173,7 @@ export const RegisterModal = ({
               name="password"
               value={formData.password}
               onChange={handleChange}
-              placeholder="пароль* (минимум 6 символов)"
+              placeholder="пароль* (минимум 8 символов)"
               className="w-full p-2 bg-white rounded shadow-sm"
               required
               minLength={6}
@@ -192,7 +192,7 @@ export const RegisterModal = ({
                 )}
               </button>
               <span className='text-sm flex-1'>
-                Я согласен на обработку моих персональных данных в соответствии с политикой конфиденциальности*
+                я согласен на обработку моих персональных данных в соответствии с политикой конфиденциальности*
               </span>
             </div>
 
@@ -203,12 +203,12 @@ export const RegisterModal = ({
                 className="w-75 h-12 text-white py-1 text-2xl bg-[rgb(43,64,143)] rounded-full disabled:opacity-50"
                 style={{ fontFamily: 'Akrobat' }}
               >
-                {isLoading ? 'Регистрация...' : 'Зарегистрироваться'}
+                {isLoading ? 'регистрация...' : 'зарегистрироваться'}
               </button>
             </div>
 
             <div className="text-center text-sm mt-4">
-              Уже есть аккаунт?{' '}
+              уже есть аккаунт?{' '}
               <button
                 type="button"
                 onClick={() => {

@@ -46,7 +46,7 @@ export const LoginModal = ({
       }
       onClose();
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Неверный логин или пароль');
+      setError(err instanceof Error ? err.message : 'неверный логин или пароль');
     } finally {
       setIsLoading(false);
     }
@@ -59,7 +59,7 @@ export const LoginModal = ({
       <div className="fixed inset-0 flex items-center justify-center p-4">
         <Dialog.Panel className="w-full max-w-md rounded-xl bg-[rgb(239,242,245)] p-6">
           <Dialog.Title className="text-2xl font-bold" style={{ fontFamily: 'Akrobat' }}>
-            Вход в аккаунт
+            вход в аккаунт
           </Dialog.Title>
           
           <form onSubmit={handleSubmit} className="mt-4 text-2sm space-y-4">
@@ -90,7 +90,7 @@ export const LoginModal = ({
             />
             
             <button type="button" className='text-sm'>
-              ● Я не помню пароль
+              ● я не помню пароль
             </button>
 
             <div className='flex flex-row gap-4 items-center'>
@@ -110,7 +110,7 @@ export const LoginModal = ({
                   onClick={onRegisterClick}
                   className="text-[rgb(43,64,143)] hover:text-[rgb(27,32,49)]"
                 >
-                  Зарегистрироваться
+                  зарегистрироваться
                 </button>
               </div>
             </div>
